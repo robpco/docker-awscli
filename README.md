@@ -1,12 +1,16 @@
-# AWSCLI - Minimal AWS CLI Image for CI Server and Alias Use
+# AWSCLI - Minimal Alpine-based AWS CLI Image for CI Runner and Local Aliases
+
+Ideal image for executing AWS CLI commands from docker-based CI runners
 
 ## Supported tags and `Dockerfile` links
 
 - [`latest` _(Dockerfile)_](https://github.com/robpco/docker-awscli/blob/master/Dockerfile)
 
-## CI SERVER USAGE
+GitHub Repo: [https://github.com/robpco/docker-awscli](https://github.com/robpco/docker-awscli)
 
-This image is ideal for executing AWS CLI commands from docker-based CI runners.
+Docker Hub Image: [https://hub.docker.com/r/robpco/docker-awscli/](https://hub.docker.com/r/robpco/docker-awscli/)
+
+## CI SERVER USAGE
 
 - Dramatically faster than using a base image and installing the AWSCLI on each pipeline run
 - Its small size downloads in a fraction of the time of the Python base image
