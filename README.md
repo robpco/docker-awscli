@@ -1,4 +1,6 @@
-# AWSCLI - Minimal Alpine-based AWS CLI Image for CI Runner and Local Aliases
+# AWSCLI
+
+## Minimal AWS CLI Image for CI Runners and Local Aliases
 
 Ideal image for executing AWS CLI commands from docker-based CI runners
 
