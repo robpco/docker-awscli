@@ -2,8 +2,9 @@ FROM alpine:3.7
 
 LABEL maintainer Robert Peteuil <https://github.com/robertpeteuil>
 
-RUN apk --update add py-pip curl zip groff less bash && \
+RUN apk --update add python py-pip groff less bash curl && \
     pip install -U awscli && \
+    apk --purge -v del py-pip && \
     rm -rf `find / -regex '.*\.py[co]' -or -name apk`
 
 WORKDIR /aws

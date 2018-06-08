@@ -1,10 +1,8 @@
 # AWSCLI
 
-## Minimal AWS CLI Image for CI Runners and Local Aliases
+## Minimal AWS CLI Image for CI Runners and Local Alias Use
 
-Ideal image for executing AWS CLI commands from docker-based CI runners
-
-## Supported tags and `Dockerfile` links
+### Supported tags and `Dockerfile` links
 
 - [`latest` _(Dockerfile)_](https://github.com/robpco/docker-awscli/blob/master/Dockerfile)
 
@@ -14,14 +12,17 @@ Docker Hub Image: [https://hub.docker.com/r/robpco/awscli/](https://hub.docker.c
 
 ## CI SERVER USAGE
 
-- Dramatically faster than base image with AWSCLI installed during each pipeline run
-- Small size enables downloading in a fraction of the time of base images
-- Doesn't require pip installation of the CLI and dependancies on each run
-- Includes `bash` support for bash-specific CI scripts or commands
+Image created to enable CI runners to execute AWS CLI commands
 
-When using with CI runners, set Image Entrypoint as shown below as default Entrypoint is `aws`.
+- Dramatically faster than downloading base image and installing AWS CLI for each execution
+- Downloads fast due to its Small size (~80 MB)
+- Executes fast as AWS CLI and dependancies are preinstalled
+- Includes `bash` and `curl` commands for use in CI scripts
 
-Example `.gitlab-ci.yml` (GitLab CI) that uses AWS CLI to copy `settings` folder to S3.  (In this example, AWS Credentials are passed via environment variables set as Gitlab Secrets.)
+**Example `.gitlab-ci.yml` (GitLab CI)** using image to copy directory to S3
+
+- Set Entrypoint to override default of `aws`
+- Pass AWS Credentials via environment variables set as CI Secrets
 
 ``` yaml
 image:
@@ -37,10 +38,10 @@ deploy:
 
 ## ALIAS USAGE
 
-For local use create alias .bashrc that passes credentials:
+For CLI use create an alias .bashrc that passes credentials using one of the methods below
 
 ``` bash
-# Share "~/.aws" credential and configuration directory
+# Example alias that shares local host "~/.aws" directory
 alias aws='docker run --rm -t -v ~/.aws:/root/.aws:ro $(tty &>/dev/null && echo "-i") robpco/awscli'
 ```
 
