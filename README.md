@@ -15,7 +15,7 @@ Docker Hub Image: [https://hub.docker.com/r/robpco/awscli/](https://hub.docker.c
 Image created to enable CI runners to execute AWS CLI commands
 
 - Dramatically faster than downloading base image and installing AWS CLI for each execution
-- Downloads fast due to its Small size (~80 MB)
+- Downloads fast due to small size (26 MB compressed)
 - Executes fast as AWS CLI and dependancies are preinstalled
 - Includes `bash` and `curl` commands for use in CI scripts
 
