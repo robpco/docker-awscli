@@ -34,19 +34,19 @@ deploy:
 For local machine use, create an alias in in your .bashrc that passes your credentials:
 
 ``` bash
-# passing "~/.aws" configuration directory to image
+# Share "~/.aws" credential and configuration directory
 alias aws='docker run --rm -t -v ~/.aws:/root/.aws:ro $(tty &>/dev/null && echo "-i") robpco/awscli'
 ```
 
 ### Passing Credentials
 
 ``` bash
-# Share .aws credentials and configuration:
+# Share .aws credential and configuration directories:
 docker run --rm -v <config_path>:/root/.aws:ro \
                 -v <option_yml>:/aws:ro \
                       robpco/awscli <argument>
 
-# Share Credential via Environment Variables:
+# Share Credentials via Environment Variables:
 docker run --rm -it -e AWS_ACCESS_KEY_ID \
                     -e AWS_SECRET_ACCESS_KEY \
                     -e AWS_DEFAULT_REGION \
