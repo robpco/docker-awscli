@@ -10,7 +10,7 @@ Ideal image for executing AWS CLI commands from docker-based CI runners
 
 GitHub Repo: [https://github.com/robpco/docker-awscli](https://github.com/robpco/docker-awscli)
 
-Docker Hub Image: [https://hub.docker.com/r/robpco/docker-awscli/](https://hub.docker.com/r/robpco/awscli/)
+Docker Hub Image: [https://hub.docker.com/r/robpco/awscli/](https://hub.docker.com/r/robpco/awscli/)
 
 ## CI SERVER USAGE
 
