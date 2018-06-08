@@ -10,18 +10,18 @@ Ideal image for executing AWS CLI commands from docker-based CI runners
 
 GitHub Repo: [https://github.com/robpco/docker-awscli](https://github.com/robpco/docker-awscli)
 
-Docker Hub Image: [https://hub.docker.com/r/robpco/docker-awscli/](https://hub.docker.com/r/robpco/docker-awscli/)
+Docker Hub Image: [https://hub.docker.com/r/robpco/docker-awscli/](https://hub.docker.com/r/robpco/awscli/)
 
 ## CI SERVER USAGE
 
-- Dramatically faster than using a base image and installing the AWSCLI on each pipeline run
-- Its small size downloads in a fraction of the time of the Python base image
-- It doesn't require pip installation of the CLI and dependancies
-- Includes `bash` to ensure support of any bash-specific CI commands
+- Dramatically faster than base image with AWSCLI installed during each pipeline run
+- Small size enables downloading in a fraction of the time of base images
+- Doesn't require pip installation of the CLI and dependancies on each run
+- Includes `bash` support for bash-specific CI scripts or commands
 
-When using on CI runners, make sure to set the Image Entrypoint to `bash`, the image default Entrypoint is `aws`.
+When using with CI runners, set Image Entrypoint as shown below as default Entrypoint is `aws`.
 
-Example `.gitlab-ci.yml` (GitLab CI) file that copies `settings` folder to S3.  (In this example, AWS Credentials are passed via environment variables set as Gitlab Secrets.)
+Example `.gitlab-ci.yml` (GitLab CI) that uses AWS CLI to copy `settings` folder to S3.  (In this example, AWS Credentials are passed via environment variables set as Gitlab Secrets.)
 
 ``` yaml
 image:
@@ -37,7 +37,7 @@ deploy:
 
 ## ALIAS USAGE
 
-For local machine use, create an alias in in your .bashrc that passes your credentials:
+For local use create alias .bashrc that passes credentials:
 
 ``` bash
 # Share "~/.aws" credential and configuration directory
