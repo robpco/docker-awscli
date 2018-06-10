@@ -8,8 +8,9 @@ services:
 variables:
   REGISTRY: "docker.io"
   REGISTRY_USER: "robpco"
+  RELEASE_IMAGE: "awscli"
   RELEASE_TAG: "latest"
-  REGISTRY_IMAGE: "${REGISTRY}/${REGISTRY_USER}/${CI_PROJECT_NAME}:${RELEASE_TAG}"
+  REGISTRY_IMAGE: "${REGISTRY}/${REGISTRY_USER}/${RELEASE_IMAGE}:${RELEASE_TAG}"
 
 before_script:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASSWORD"
@@ -19,8 +20,7 @@ build:
   stage: build
   script:
     - docker pull "${CI_REGISTRY_IMAGE}:latest" || true
-    - docker build --cache-from "${CI_REGISTRY_IMAGE}:latest" --tag "${CI_REGISTRY_IMAGE}:${CI_BUILD_REF}" --tag "$REGISTRY_IMAGE" .
-    - docker tag "${CI_REGISTRY_IMAGE}:${CI_BUILD_REF}" "${CI_REGISTRY_IMAGE}:latest"
+    - docker build --cache-from "${CI_REGISTRY_IMAGE}:latest" --tag "${CI_REGISTRY_IMAGE}:latest" --tag "$REGISTRY_IMAGE" .
     - docker push "${CI_REGISTRY_IMAGE}:latest"
     - docker push "$REGISTRY_IMAGE"
   only:
