@@ -52,6 +52,4 @@ container_scanning:
   artifacts:
     paths: [gl-container-scanning-report.json]
   only:
-    refs:
-      - master
-      - schedules
+    - tags
