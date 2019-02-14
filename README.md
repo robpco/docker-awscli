@@ -17,7 +17,7 @@ Image created to enable CI runners to execute AWS CLI commands
 - Dramatically faster than downloading base image and installing AWS CLI for each execution
 - Downloads fast due to small size (33 MB compressed)
 - Executes fast as AWS CLI and dependancies are preinstalled
-- Includes `bash`, `curl` and `git` commands for use in CI scripts
+- Includes `bash`, `curl`, `git` and `zip` commands for use in CI scripts
 
 **Example `.gitlab-ci.yml` (GitLab CI)** using image to copy directory to S3
 
