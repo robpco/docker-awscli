@@ -16,7 +16,7 @@ variables:
   REGISTRY_IMAGE: "${REGISTRY}/${REGISTRY_USER}/${RELEASE_IMAGE}"
 
 before_script:
-  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASSWORD"
+  - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin 
 
 build:
   stage: build
